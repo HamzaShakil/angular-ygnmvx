@@ -1,0 +1,19 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+ <div class="container">
+      <h1>Angular 2 + Google Maps polyline </h1>
+      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+         <ng-container>
+           <agm-polyline *ngFor="let point of polyline;let i = index;"  [strokeColor]="point.speed < 50 ? '#2196f3': 'red'">
+              <agm-polyline-point [latitude]="point.latitude" [longitude]="point.longitude">
+              </agm-polyline-point>
+              <ng-container *ngIf="polyline[i+1]">
+                <agm-polyline-point [latitude]="polyline[i+1].latitude" [longitude]="polyline[i+1].longitude">
+                </agm-polyline-point>
+              </ng-container>
+          </agm-polyline>
+        </ng-container>
+      </agm-map>
+    </div>
